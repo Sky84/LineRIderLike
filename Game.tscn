@@ -12,3 +12,5 @@ position = Vector2( 90.5436, 97.0568 )
 
 [node name="Objective" parent="." instance=ExtResource( 2 )]
 position = Vector2( 851.851, 452.663 )
+
+[node name="TerrainStaticBody2D" type="StaticBody2D" parent="."]
