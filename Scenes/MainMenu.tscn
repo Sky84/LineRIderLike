@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/MainMenuController.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/LevelsMenuController.gd" type="Script" id=4]
 
-[node name="Control" type="Control"]
+[node name="MainMenuScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -12,10 +12,12 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
 anchor_right = 1.0
@@ -67,8 +69,10 @@ __meta__ = {
 }
 
 [node name="LevelsMenu" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
