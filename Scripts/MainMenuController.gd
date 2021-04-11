@@ -17,7 +17,5 @@ func _on_PlayCampaignButton_button_up():
 	MainMenu.hide();
 	LevelsMenu.show();
 	
-
-
 func _on_PlayInfiniteButton_button_up():
 	SceneManager.load_scene(SceneManager.Scene.InfiniteGame);

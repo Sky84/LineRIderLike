@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://custom_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/MainMenuController.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/LevelsMenuController.gd" type="Script" id=4]
 
 [node name="MainMenuScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -26,10 +28,10 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer"]
-margin_left = 459.0
-margin_top = 272.0
-margin_right = 564.0
-margin_bottom = 327.0
+margin_left = 446.0
+margin_top = 244.0
+margin_right = 578.0
+margin_bottom = 355.0
 custom_constants/separation = 15
 alignment = 1
 __meta__ = {
@@ -37,16 +39,16 @@ __meta__ = {
 }
 
 [node name="PlayCampaignButton" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
-margin_right = 105.0
-margin_bottom = 20.0
+margin_right = 132.0
+margin_bottom = 48.0
 mouse_filter = 1
 shortcut_in_tooltip = false
 text = "CAMPAIGN"
 
 [node name="PlayInfiniteButton" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
-margin_top = 35.0
-margin_right = 105.0
-margin_bottom = 55.0
+margin_top = 63.0
+margin_right = 132.0
+margin_bottom = 111.0
 shortcut_in_tooltip = false
 text = "INFINITE MOD"
 

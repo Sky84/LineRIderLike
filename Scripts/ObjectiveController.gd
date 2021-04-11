@@ -17,4 +17,4 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	SceneManager.UIController.show_win_screen();
+	GameManager.win_game();
