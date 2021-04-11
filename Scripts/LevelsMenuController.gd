@@ -14,8 +14,8 @@ var levels = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for level in levels:
-		var button: TextureButton = level_button.instance();
-		button.get_node("Label").text = level.label;
+		var button: Button = level_button.instance();
+		button.text = level.label;
 		button.connect("button_up", self, "_onLevelSelected", [level]);
 		LevelsButtonContainer.add_child(button);
 
