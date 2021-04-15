@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://custom_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Sprites/Foregrounds/title3.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/MainMenuController.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/LevelsMenuController.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Foregrounds/Tree_0002_Layer 4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Foregrounds/N128x128_0000_Layer 5.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Foregrounds/N128x128_0002_Layer 3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Foregrounds/Tree_0001_Layer 14.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Foregrounds/N128x64_0005_Layer 1.png" type="Texture" id=9]
 
 [node name="MainMenuScreen" type="Control"]
 anchor_right = 1.0
@@ -12,7 +18,103 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="title3" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -9.0
+margin_top = 1.0
+margin_right = 2.0
+margin_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="N128x128_0002_Layer 3" type="TextureRect" parent="title3"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -344.605
+margin_top = -263.091
+margin_right = -102.605
+margin_bottom = -55.0908
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="N128x128_0000_Layer 5" type="TextureRect" parent="title3"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -69.1444
+margin_top = -195.285
+margin_right = 100.856
+margin_bottom = -48.2852
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="N128x64_0005_Layer 1" type="TextureRect" parent="title3"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 195.721
+margin_top = -210.118
+margin_right = 429.721
+margin_bottom = -36.1176
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="Tree_0002_Layer 4" type="TextureRect" parent="title3"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -522.441
+margin_top = -534.605
+margin_right = -228.441
+margin_bottom = -268.605
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tree_0001_Layer 14" type="TextureRect" parent="title3"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -5.76221
+margin_top = -515.07
+margin_right = 282.238
+margin_bottom = -283.07
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MainMenu" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
@@ -53,6 +155,7 @@ shortcut_in_tooltip = false
 text = "INFINITE MOD"
 
 [node name="LevelsMenu" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
