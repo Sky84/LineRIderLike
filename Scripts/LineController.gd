@@ -26,7 +26,7 @@ func _update_collision(point1:Vector2, point2:Vector2):
 
 	# Créer le collision shape
 	var collision_shape = CollisionShape2D.new()
-	collision_shape.shape = segment
+	collision_shape.shape = segment;
 	currentStaticBody.add_child(collision_shape);
 
 func _process(delta):
