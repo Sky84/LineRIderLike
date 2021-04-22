@@ -48,6 +48,7 @@ scale = Vector2( 0.9784, 0.750002 )
 [node name="Killzone2" parent="GamePlane" instance=ExtResource( 5 )]
 position = Vector2( 991.491, -64.3035 )
 scale = Vector2( 0.9784, 16.67 )
+z_index = 11
 
 [node name="TerrainStaticBody2D" type="StaticBody2D" parent="GamePlane"]
 physics_material_override = SubResource( 1 )
