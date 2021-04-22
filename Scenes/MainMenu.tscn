@@ -9,12 +9,14 @@
 [node name="MainMenuScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="main_menu" type="TextureRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
@@ -26,6 +28,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -34,6 +37,7 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,39 +64,24 @@ text = "CAMPAIGN"
 margin_top = 63.0
 margin_right = 132.0
 margin_bottom = 111.0
+mouse_filter = 1
 shortcut_in_tooltip = false
 text = "INFINITE MOD"
 
 [node name="LevelsMenu" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" type="Button" parent="LevelsMenu"]
-margin_right = 128.0
-margin_bottom = 64.0
-text = "BACK"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CenterContainer" type="CenterContainer" parent="LevelsMenu"]
+[node name="GridContainer" type="GridContainer" parent="LevelsMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GridContainer" type="GridContainer" parent="LevelsMenu/CenterContainer"]
-margin_left = 960.0
-margin_top = 540.0
-margin_right = 960.0
-margin_bottom = 540.0
-columns = 5
+margin_top = 0.360004
+columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -109,4 +98,3 @@ __meta__ = {
 
 [connection signal="button_up" from="MainMenu/CenterContainer/VBoxContainer/PlayCampaignButton" to="MainMenu" method="_on_PlayCampaignButton_button_up"]
 [connection signal="button_up" from="MainMenu/CenterContainer/VBoxContainer/PlayInfiniteButton" to="MainMenu" method="_on_PlayInfiniteButton_button_up"]
-[connection signal="button_up" from="LevelsMenu/BackButton" to="MainMenu" method="_on_PlayCampaignButton_button_up"]

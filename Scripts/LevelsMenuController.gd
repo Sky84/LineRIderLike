@@ -1,14 +1,14 @@
 extends Control
 
-onready var LevelsButtonContainer = $CenterContainer/GridContainer;
-var level_button: Resource = load("res://Objects/Button.tscn");
+onready var LevelsButtonContainer = $GridContainer;
+var level_button: Resource = load("res://Objects/ButtonLevel.tscn");
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for level in SceneManager.levels:
 		var button: Button = level_button.instance();
-		button.text = level.label;
+		button.get_node("Label").text = level.label;
 		button.connect("button_up", self, "_onLevelSelected", [level]);
 		LevelsButtonContainer.add_child(button);
 
