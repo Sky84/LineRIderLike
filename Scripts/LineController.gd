@@ -6,7 +6,7 @@ var line_width = 4;
 var draws = {};
 var collisionsShapes = [];
 var is_next_point_first = false;
-onready var currentStaticBody: StaticBody2D = $TerrainStaticBody2D;
+onready var currentStaticBody: StaticBody2D = $GamePlane/TerrainStaticBody2D;
 
 func _input(event:InputEvent):
 	if event is InputEventMouseButton:
@@ -48,4 +48,4 @@ func _draw():
 		if key - 1 in draws and draws[key].is_first_from_line == false:
 			var current_point = draws[key];
 			var previous_point = draws[key-1];
-			draw_line(previous_point.position, current_point.position, Color.black, line_width);
+			draw_line(previous_point.position, current_point.position, Color(0, 0, 0, 0.7), line_width);

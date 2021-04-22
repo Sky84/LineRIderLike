@@ -1,14 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://custom_theme.tres" type="Theme" id=1]
-[ext_resource path="res://Sprites/Foregrounds/title3.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/main menu.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/MainMenuController.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/LevelsMenuController.gd" type="Script" id=4]
-[ext_resource path="res://Sprites/Foregrounds/Tree_0002_Layer 4.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Foregrounds/N128x128_0000_Layer 5.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Foregrounds/N128x128_0002_Layer 3.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Foregrounds/Tree_0001_Layer 14.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Foregrounds/N128x64_0005_Layer 1.png" type="Texture" id=9]
 
 [node name="MainMenuScreen" type="Control"]
 anchor_right = 1.0
@@ -18,97 +13,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="title3" type="TextureRect" parent="."]
+[node name="main menu" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -9.0
-margin_top = 1.0
-margin_right = 2.0
-margin_bottom = 1.0
 texture = ExtResource( 2 )
-expand = true
-stretch_mode = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="N128x128_0002_Layer 3" type="TextureRect" parent="title3"]
-show_behind_parent = true
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -694.5
-margin_top = -488.0
-margin_right = -204.5
-margin_bottom = -123.0
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="N128x128_0000_Layer 5" type="TextureRect" parent="title3"]
-show_behind_parent = true
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -69.1444
-margin_top = -195.285
-margin_right = 100.856
-margin_bottom = -48.2852
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 6
-
-[node name="N128x64_0005_Layer 1" type="TextureRect" parent="title3"]
-show_behind_parent = true
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 195.721
-margin_top = -210.118
-margin_right = 429.721
-margin_bottom = -36.1176
-texture = ExtResource( 9 )
-expand = true
-stretch_mode = 6
-
-[node name="Tree_0002_Layer 4" type="TextureRect" parent="title3"]
-show_behind_parent = true
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -939.5
-margin_top = -963.0
-margin_right = -436.5
-margin_bottom = -483.0
-rect_scale = Vector2( 2, 2 )
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tree_0001_Layer 14" type="TextureRect" parent="title3"]
-show_behind_parent = true
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -5.5
-margin_top = -916.0
-margin_right = 531.5
-margin_bottom = -484.0
-rect_scale = Vector2( 2, 2 )
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -187,6 +95,7 @@ columns = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="button_up" from="MainMenu/CenterContainer/VBoxContainer/PlayCampaignButton" to="MainMenu" method="_on_PlayCampaignButton_button_up"]
 [connection signal="button_up" from="MainMenu/CenterContainer/VBoxContainer/PlayInfiniteButton" to="MainMenu" method="_on_PlayInfiniteButton_button_up"]
 [connection signal="button_up" from="LevelsMenu/BackButton" to="MainMenu" method="_on_PlayCampaignButton_button_up"]

@@ -17,4 +17,5 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	GameManager.win_game();
+	if body is RigidBody2D and body.name == "Ball":
+		GameManager.win_game();
