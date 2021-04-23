@@ -10,6 +10,7 @@ func _ready():
 		var button: Button = level_button.instance();
 		button.get_node("Label").text = level.label;
 		button.connect("button_up", self, "_onLevelSelected", [button, level]);
+		button.get_node("PreviewTexture").texture = load(level.path_preview);
 		LevelsButtonContainer.add_child(button);
 		buttons.append(button);
 

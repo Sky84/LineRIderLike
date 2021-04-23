@@ -7,10 +7,10 @@ const Scene = {
 }
 
 const levels = [
-	{"index":1, "label":"Give", "path":"res://Scenes/Levels/Level_1.tscn"},
-	{"index":2, "label":"A", "path":"res://Scenes/Levels/Level_2.tscn"},
-	{"index":3, "label":"Second", "path":"res://Scenes/Levels/Level_3.tscn"},
-	{"index":4, "label":"Chance", "path":"res://Scenes/Levels/Level_4.tscn"},
+	{"index":1, "label":"Give", "path":"res://Scenes/Levels/Level_1.tscn", "path_preview":"res://Sprites/Previews/lvl1.png"},
+	{"index":2, "label":"A", "path":"res://Scenes/Levels/Level_2.tscn", "path_preview":"res://Sprites/Previews/lvl1.png"},
+	{"index":3, "label":"Second", "path":"res://Scenes/Levels/Level_3.tscn", "path_preview":"res://Sprites/Previews/lvl1.png"},
+	{"index":4, "label":"Chance", "path":"res://Scenes/Levels/Level_4.tscn", "path_preview":"res://Sprites/Previews/lvl1.png"},
 ];
 
 var currentScene;
