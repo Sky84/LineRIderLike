@@ -1,10 +1,35 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://custom_theme.tres" type="Theme" id=1]
-[ext_resource path="res://Sprites/main menu.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Main_menu_UI.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/MainMenuController.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/LevelsMenuController.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/level_select.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/Oliciy.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="DynamicFont" id=11]
+size = 100
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
 
 [node name="MainMenuScreen" type="Control"]
 anchor_right = 1.0
@@ -12,13 +37,18 @@ anchor_bottom = 1.0
 mouse_filter = 1
 theme = ExtResource( 1 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_horizontal_guides_": [  ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 967.968 ]
 }
 
 [node name="main_menu" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 2.0
+margin_right = 3.0
 texture = ExtResource( 2 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,39 +62,71 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
+[node name="PlayCampaignButton" type="Button" parent="MainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -960.0
 mouse_filter = 1
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+shortcut_in_tooltip = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer"]
-margin_left = 894.0
-margin_top = 484.0
-margin_right = 1026.0
-margin_bottom = 595.0
-custom_constants/separation = 15
-alignment = 1
+[node name="Label" type="Label" parent="MainMenu/PlayCampaignButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -196.0
+margin_top = -128.5
+margin_right = 196.0
+margin_bottom = 128.5
+custom_fonts/font = SubResource( 11 )
+text = "START"
+align = 1
+valign = 1
+uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayCampaignButton" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
-margin_right = 132.0
-margin_bottom = 48.0
+[node name="PlayInfiniteButton" type="Button" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 968.0
 mouse_filter = 1
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
 shortcut_in_tooltip = false
-text = "CAMPAIGN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="PlayInfiniteButton" type="Button" parent="MainMenu/CenterContainer/VBoxContainer"]
-margin_top = 63.0
-margin_right = 132.0
-margin_bottom = 111.0
-mouse_filter = 1
-shortcut_in_tooltip = false
-text = "INFINITE MOD"
+[node name="Label" type="Label" parent="MainMenu/PlayInfiniteButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -196.0
+margin_top = -128.5
+margin_right = 196.0
+margin_bottom = 128.5
+custom_fonts/font = SubResource( 11 )
+text = "QUIT"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LevelsMenu" type="Control" parent="."]
 anchor_right = 1.0
@@ -95,5 +157,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_up" from="MainMenu/CenterContainer/VBoxContainer/PlayCampaignButton" to="MainMenu" method="_on_PlayCampaignButton_button_up"]
-[connection signal="button_up" from="MainMenu/CenterContainer/VBoxContainer/PlayInfiniteButton" to="MainMenu" method="_on_PlayInfiniteButton_button_up"]
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="button_up" from="MainMenu/PlayCampaignButton" to="MainMenu" method="_on_PlayCampaignButton_button_up"]
+[connection signal="button_up" from="MainMenu/PlayInfiniteButton" to="MainMenu" method="_on_PlayInfiniteButton_button_up"]
+[connection signal="tween_completed" from="Tween" to="MainMenu" method="_on_Tween_tween_completed"]
