@@ -73,8 +73,12 @@ scale = Vector2( 1, 0.850722 )
 texture = ExtResource( 6 )
 
 [node name="Foreground1" type="Sprite" parent="FrontPlane"]
+position = Vector2( 1.35525e-20, -9.53674e-07 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Camera2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 583.68, 1041.64 )
