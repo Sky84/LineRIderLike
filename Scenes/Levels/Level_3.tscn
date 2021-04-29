@@ -1,20 +1,26 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Objects/Camera2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/LineController.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Objective.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Killzones/InivisibleKillZone.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/level_1/Foreground2.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/level_1/Background3.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/level_1/Background1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/level_1/Background2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/level_1/Grass_level1.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/level_1/Terrain_level1.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/level_1/Foreground1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/level_3/Grass.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/level_3/Water.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/level_3/Frontground2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/level_3/Frontground.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/level_3/Background.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/level_3/Spikes.png" type="Texture" id=11]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 1 )
+colors = PoolColorArray( 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -22,31 +28,21 @@ script = ExtResource( 2 )
 [node name="BackgroundPlane" type="Node2D" parent="."]
 z_index = -10
 
-[node name="Background1" type="Sprite" parent="BackgroundPlane"]
-texture = ExtResource( 8 )
-
-[node name="Background2" type="Sprite" parent="BackgroundPlane"]
-texture = ExtResource( 9 )
-
-[node name="Background3" type="Sprite" parent="BackgroundPlane"]
-texture = ExtResource( 7 )
+[node name="Background" type="Sprite" parent="BackgroundPlane"]
+texture = ExtResource( 10 )
 
 [node name="GamePlane" type="Node2D" parent="."]
 
 [node name="Ball" parent="GamePlane" instance=ExtResource( 3 )]
-position = Vector2( -314.578, -367.841 )
+position = Vector2( -880, -544 )
 
 [node name="Objective" parent="GamePlane" instance=ExtResource( 4 )]
-position = Vector2( 683.493, 180.269 )
-rotation = 0.511054
+position = Vector2( 320, 96 )
 scale = Vector2( 3.73048, 1 )
 
-[node name="Killzone" parent="GamePlane" instance=ExtResource( 5 )]
-position = Vector2( -540.855, 267.647 )
-scale = Vector2( 0.9784, 0.750002 )
-
 [node name="Killzone2" parent="GamePlane" instance=ExtResource( 5 )]
-position = Vector2( 991.491, -64.3035 )
+position = Vector2( 208, 176 )
+rotation = 1.57079
 scale = Vector2( 0.9784, 16.67 )
 z_index = 11
 
@@ -56,26 +52,40 @@ physics_material_override = SubResource( 1 )
 [node name="FrontPlane" type="Node2D" parent="."]
 z_index = 10
 
-[node name="Grass_level1" type="Sprite" parent="FrontPlane"]
-texture = ExtResource( 10 )
+[node name="WaterBackground" type="Sprite" parent="FrontPlane"]
+show_behind_parent = true
+position = Vector2( -3.05176e-05, 368 )
+scale = Vector2( 0.9375, 448 )
+texture = SubResource( 3 )
+
+[node name="Grass" type="Sprite" parent="FrontPlane"]
+texture = ExtResource( 6 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="FrontPlane"]
 
-[node name="Terrain_level1" type="Sprite" parent="FrontPlane/StaticBody2D"]
+[node name="Frontground" type="Sprite" parent="FrontPlane/StaticBody2D"]
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FrontPlane/StaticBody2D"]
+polygon = PoolVector2Array( -932.7, -492, -932, -492, -901, -448.6, -901, -442.3, -894, -420.3, -894, -415.4, -887.3, -379, -880, -365.5, -880, -360.4, -876.4, -344, -869, -332.6, -869, -329.4, -837.6, -244, -836.8, -244, -828.8, -228, -828, -228, -794, -183.7, -794, -181.5, -775.9, -152, -775.2, -152, -722.3, -104, -720.3, -104, -658.3, -56, -656.5, -56, -644.5, -49, -641.7, -49, -606, -37.5, -606, -36.3, -583.4, -24, -580.7, -24, -558.7, -17, -553.8, -17, -525, -11.7, -525, -10.4, -515.6, -7, -509.9, -7, -458, -1.79999, -458, -0.5, -445.9, 3, -433.9, 3, -415, 4.09998, -415, 5.5, -402.9, 9, -383.1, 9, -362, 7.90002, -362, 9.59998, -347, 15.6, -347, 17, -331, 29, -331, 31.3, -311, 56.3, -311, 59.6, -303, 82.7, -303, 92, -299.2, 137, -298.4, 137, -297.3, 142, -287.6, 149.3, -288.6, 152, -960, 152, -960, -540.1, -959, -540.3 )
+
+[node name="Spikes" type="Sprite" parent="FrontPlane"]
 texture = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FrontPlane/StaticBody2D"]
-polygon = PoolVector2Array( -510, -536.7, -526, -491.6, -526, -487.8, -544.4, -405, -545.5, -405, -553, -381.7, -553, -298.7, -559.5, -279.3, -557.9, -277, -545.9, -277, -534, -276.1, -433.2, -301, -425.3, -301, -386.2, -307, -369.9, -307, -348, -304.3, -324, -308.3, -324, -303.9, -338.4, -295, -347.8, -295, -383, -291.2, -383.8, -290.4, -382.9, -289, -377.8, -289, -333, -281.7, -333, -280.4, -298, -268.4, -298, -263.5, -354.4, -276, -409, -276, -409, -277, -423.7, -277, -500, -266.2, -573, -206.1, -573, -161.8, -581, -109.7, -581, -96, -577, -82.3, -577, -21, -578, -21, -582, 136, -581.3, 136, -573, 186.8, -573, 199, -573.9, 233, -573.2, 233, -572.2, 245, -571.6, 245, -566, 260.7, -566, 284, -565.1, 315.6, -377.7, 164, -375.6, 164, -286.6, 105, -284.5, 105, -226.5, 76, -222.1, 76, -196.3, 69, -190.3, 69, -158.2, 64, -146.2, 64, 6.90002, 49, 19.9, 49, 105.9, 43, 207, 43, 207, 44.1, 340, 55.2, 340, 56.3, 374, 61.3, 374, 62.4, 417, 72.4, 417, 73.6, 481, 98.6, 481, 99.7, 560, 137.7, 560, 138.8, 678, 201.8, 678, 202.9, 756, 248.9, 756, 250, 807.6, 287, 809.6, 287, 876.6, 329, 878.5, 329, 899.5, 340, 904.1, 340, 960, 347.2, 960, 540, -871.8, 540, -799, 323.7, -799, 315, -800.2, 302, -798.7, 302, -796, 287.6, -796, 261, -791, -73, -791.6, -73, -796, -92.8, -796, -98.1, -793.2, -130, -799, -151.8, -799, -161, -802, -187.9, -802, -360, -800, -504, -815, -534.5, -815, -540, -510, -540 )
+[node name="Frontground2" type="Sprite" parent="FrontPlane"]
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Foreground2" type="Sprite" parent="FrontPlane"]
-position = Vector2( 0, -33.9411 )
-scale = Vector2( 1, 0.850722 )
-texture = ExtResource( 6 )
-
-[node name="Foreground1" type="Sprite" parent="FrontPlane"]
-position = Vector2( 1.35525e-20, -9.53674e-07 )
-scale = Vector2( 5, 5 )
-texture = ExtResource( 12 )
+[node name="Water" type="Sprite" parent="FrontPlane"]
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
