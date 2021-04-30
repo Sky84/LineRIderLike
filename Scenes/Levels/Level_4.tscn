@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Objects/Camera2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/LineController.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/level_4/Gameground.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/level_4/Spikes.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/level_4/Grass.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/level_1/Foreground2.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/level_1/Foreground1.png" type="Texture" id=12]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -101,6 +102,21 @@ polygon = PoolVector2Array( -920, -355.5, -920, -354.2, -905, -347.3, -905, -346
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="FrontPlane/StaticBody2D"]
 polygon = PoolVector2Array( 384, 376, 384, 377.1, 434, 379.1, 434, 380.2, 479, 385.2, 479, 386.5, 502.1, 393, 510.1, 393, 577.2, 399, 611, 399, 718, 400, 718, 401.1, 746, 402.1, 746, 403.3, 768.3, 407, 804, 407, 960, 406, 960, 540, -718.2, 540, -718.4, 539.5, -704.8, 527, -702.5, 527, -676.5, 514, -672.2, 514, -626, 509.2, -626, 508.4, -598, 501.5, -576.7, 485, -574.5, 485, -540, 464.9, -540, 464.1, -525.7, 452, -523.4, 452, -501.4, 442, -389.8, 442, -357.7, 447, -331.4, 447, -328, 446.3, -328, 445.6, -246.3, 417, -234.3, 417, -211, 409.5, -188.7, 392, -186.4, 392, -164.4, 382, -160.4, 382, -133.2, 376, -122.1, 376, -110, 375.1, -110, 374 )
+
+[node name="Foreground2" type="NinePatchRect" parent="FrontPlane"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -982.0
+margin_top = -569.0
+margin_right = -649.0
+margin_bottom = -128.0
+rect_scale = Vector2( 5.92, 2.52 )
+texture = ExtResource( 10 )
+region_rect = Rect2( 372.952, 117.984, 1839.08, 1203.82 )
+patch_margin_bottom = 259
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Foreground1" type="Sprite" parent="FrontPlane"]
 position = Vector2( 1.35525e-20, -9.53674e-07 )
