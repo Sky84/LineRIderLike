@@ -29,8 +29,8 @@ func _on_PlayCampaignButton_button_up():
 	_set_visibility_menu([MainMenu, MainMenuBackground], false);
 	_set_visibility_menu([LevelsMenu, LevelsMenuBackground], true);
 
-func _on_PlayInfiniteButton_button_up():
-	SceneManager.load_scene(SceneManager.Scene.InfiniteGame);
+func _on_QuitButton_button_up():
+	get_tree().quit();
 
 func _on_Tween_tween_completed(object, key):
 	if object.modulate.a == 0:

@@ -95,7 +95,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayInfiniteButton" type="Button" parent="MainMenu"]
+[node name="QuitButton" type="Button" parent="MainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 968.0
@@ -110,7 +110,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MainMenu/PlayInfiniteButton"]
+[node name="Label" type="Label" parent="MainMenu/QuitButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -161,5 +161,5 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="."]
 
 [connection signal="button_up" from="MainMenu/PlayCampaignButton" to="MainMenu" method="_on_PlayCampaignButton_button_up"]
-[connection signal="button_up" from="MainMenu/PlayInfiniteButton" to="MainMenu" method="_on_PlayInfiniteButton_button_up"]
+[connection signal="button_up" from="MainMenu/QuitButton" to="MainMenu" method="_on_QuitButton_button_up"]
 [connection signal="tween_completed" from="Tween" to="MainMenu" method="_on_Tween_tween_completed"]

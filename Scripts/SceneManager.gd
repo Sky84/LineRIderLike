@@ -1,16 +1,19 @@
 extends Node
 
 onready var RootScene = get_node("/root/RootScene");
+onready var tween = get_node("/root/Tween");
+onready var transition = get_node("/root/TextureTransition");
+onready var AudioPlayer:AudioStreamPlayer = RootScene.get_node("./AudioStreamPlayer");
 const Scene = {
 	InfiniteGame = "res://Scenes/InfiniteGame.tscn",
 	MainMenu = "res://Scenes/MainMenu.tscn",
 }
 
 const levels = [
-	{"index":1, "label":"Give", "path":"res://Scenes/Levels/Level_1.tscn", "path_preview":"res://Sprites/Previews/lvl1.png"},
-	{"index":2, "label":"A", "path":"res://Scenes/Levels/Level_2.tscn", "path_preview":"res://Sprites/Previews/lvl2.png"},
-	{"index":3, "label":"Second", "path":"res://Scenes/Levels/Level_3.tscn", "path_preview":"res://Sprites/Previews/lvl3.png"},
-	{"index":4, "label":"Chance", "path":"res://Scenes/Levels/Level_4.tscn", "path_preview":"res://Sprites/Previews/lvl4.png"},
+	{"index":1, "label":"Give", "path":"res://Scenes/Levels/Level_1.tscn", "path_preview":"res://Sprites/Previews/lvl1.png", "background_music":"res://Audio/PR1_export.wav"},
+	{"index":2, "label":"A", "path":"res://Scenes/Levels/Level_2.tscn", "path_preview":"res://Sprites/Previews/lvl2.png", "background_music":"res://Audio/PR1_export.wav"},
+	{"index":3, "label":"Second", "path":"res://Scenes/Levels/Level_3.tscn", "path_preview":"res://Sprites/Previews/lvl3.png", "background_music":"res://Audio/PR1_export.wav"},
+	{"index":4, "label":"Chance", "path":"res://Scenes/Levels/Level_4.tscn", "path_preview":"res://Sprites/Previews/lvl4.png", "background_music":"res://Audio/PR2_export.wav"},
 ];
 
 var currentScene;
@@ -34,6 +37,8 @@ func load_scene(path:String):
 func load_level(level):
 	current_level = level;
 	load_scene(level.path);
+	AudioPlayer.stream = load(level.background_music);
+	AudioPlayer.play();
 
 func get_level_by_index(index:int):
 	for level in levels:
