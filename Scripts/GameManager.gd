@@ -16,33 +16,24 @@ func _init_game_scene():
 	SceneManager.add_child_to_current_scene(UIController);
 
 func win_game():
-	_pause_game(true);
 	if SceneManager.levels.size() == SceneManager.current_level.index:
-		UIController.show_game_finished_screen();
+		back_to_menu();
 	else:
-		UIController.show_win_screen();
+		next_level();
 
 func loose_game():
-	_pause_game(true);
-	UIController.show_loose_screen();
+	retry_level();
 
-func _pause_game(value: bool):
-	get_tree().paused = value;
-	
 func next_level():
 	var level = SceneManager.get_level_by_index(SceneManager.current_level.index+1);
 	if level:
 		SceneManager.load_level(level);
-		_pause_game(false);
 
 func retry_level():
 	SceneManager.load_level(SceneManager.current_level);
-	_pause_game(false);
 
 func back_to_menu():
-	_pause_game(false);
 	SceneManager.load_scene(SceneManager.Scene.MainMenu);
 	
 func load_infinite_mod():
-	_pause_game(false);
 	SceneManager.load_scene(SceneManager.Scene.InfiniteGame);

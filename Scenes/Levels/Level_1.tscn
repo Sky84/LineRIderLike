@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Objects/Camera2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/LineController.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/level_1/Grass_level1.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/level_1/Terrain_level1.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/level_1/Foreground1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/level_1/story_text.png" type="Texture" id=13]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
@@ -79,6 +80,9 @@ texture = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="story_text" type="Sprite" parent="FrontPlane"]
+texture = ExtResource( 13 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 583.68, 1041.64 )

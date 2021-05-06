@@ -1,15 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/Oliciy.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/Retry.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/UIController.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 60
 font_data = ExtResource( 1 )
 
 [node name="UI" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 3 )
+
+[node name="RetryButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -153.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
 
 [node name="WinScreen" type="PopupDialog" parent="."]
 visible = true
@@ -31,7 +43,7 @@ anchor_bottom = 1.0
 margin_left = 96.0
 margin_right = -98.0
 margin_bottom = -314.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.552941, 1, 0.305882, 1 )
 text = "WIN"
 align = 1
@@ -82,7 +94,7 @@ anchor_bottom = 1.0
 margin_left = 96.0
 margin_right = -98.0
 margin_bottom = -314.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.286275, 0.286275, 1 )
 text = "LOOSE"
 align = 1
@@ -133,7 +145,7 @@ anchor_bottom = 1.0
 margin_left = 4.0
 margin_right = -2.0
 margin_bottom = -314.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.964706, 1, 0.388235, 1 )
 text = "GAME FINISHED"
 align = 1
@@ -164,19 +176,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RetryButton" type="Button" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -67.0
-margin_bottom = 31.0
-text = "RETRY"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[connection signal="pressed" from="RetryButton" to="." method="_on_RetryLevelButton_button_up"]
 [connection signal="button_up" from="WinScreen/BackToMenuButton" to="." method="_on_BackToMenuButton_button_up"]
 [connection signal="button_up" from="WinScreen/NextLevelButton" to="." method="_on_NextLevelButton_button_up"]
 [connection signal="button_up" from="LooseScreen/BackToMenuButton" to="." method="_on_BackToMenuButton_button_up"]
 [connection signal="button_up" from="LooseScreen/RetryLevelButton" to="." method="_on_RetryLevelButton_button_up"]
 [connection signal="button_up" from="GameFinishedScreen/BackToMenuButton" to="." method="_on_BackToMenuButton_button_up"]
 [connection signal="button_up" from="GameFinishedScreen/InfiniteModButton" to="." method="_on_InfiniteModButton_button_up"]
-[connection signal="button_up" from="RetryButton" to="." method="_on_RetryLevelButton_button_up"]
