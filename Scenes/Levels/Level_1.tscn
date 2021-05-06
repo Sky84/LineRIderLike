@@ -36,6 +36,8 @@ texture = ExtResource( 7 )
 
 [node name="Ball" parent="GamePlane" instance=ExtResource( 3 )]
 position = Vector2( -314.578, -367.841 )
+mass = 0.523469
+angular_velocity = 100.0
 
 [node name="Objective" parent="GamePlane" instance=ExtResource( 4 )]
 position = Vector2( 683.493, 180.269 )
