@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Objects/Camera2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/LineController.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Objective.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Killzones/InivisibleKillZone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/level1/Foreground2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/level1/Background3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/level1/Background1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/level1/Background2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/level1/Grass_level1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/level1/Terrain_level1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/level1/Foreground1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/level1/story_text.png" type="Texture" id=13]
+
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.1
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="BackgroundPlane" type="Node2D" parent="."]
+z_index = -10
+
+[node name="Background1" type="Sprite" parent="BackgroundPlane"]
+texture = ExtResource( 8 )
+
+[node name="Background2" type="Sprite" parent="BackgroundPlane"]
+texture = ExtResource( 9 )
+
+[node name="Background3" type="Sprite" parent="BackgroundPlane"]
+texture = ExtResource( 7 )
+
+[node name="GamePlane" type="Node2D" parent="."]
+
+[node name="Ball" parent="GamePlane" instance=ExtResource( 3 )]
+position = Vector2( -314.578, -367.841 )
+mass = 0.523469
+angular_velocity = 100.0
+
+[node name="Objective" parent="GamePlane" instance=ExtResource( 4 )]
+position = Vector2( 683.493, 180.269 )
+rotation = 0.511054
+scale = Vector2( 3.73048, 1 )
+
+[node name="Killzone" parent="GamePlane" instance=ExtResource( 5 )]
+position = Vector2( -540.855, 267.647 )
+scale = Vector2( 0.9784, 0.750002 )
+
+[node name="Killzone2" parent="GamePlane" instance=ExtResource( 5 )]
+position = Vector2( 991.491, -64.3035 )
+scale = Vector2( 0.9784, 16.67 )
+z_index = 11
+
+[node name="TerrainStaticBody2D" type="StaticBody2D" parent="GamePlane"]
+physics_material_override = SubResource( 1 )
+
+[node name="FrontPlane" type="Node2D" parent="."]
+z_index = 10
+
+[node name="Grass_level1" type="Sprite" parent="FrontPlane"]
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FrontPlane"]
+
+[node name="Terrain_level1" type="Sprite" parent="FrontPlane/StaticBody2D"]
+texture = ExtResource( 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FrontPlane/StaticBody2D"]
+polygon = PoolVector2Array( -510, -536.7, -526, -491.6, -526, -487.8, -544.4, -405, -545.5, -405, -553, -381.7, -553, -298.7, -559.5, -279.3, -557.9, -277, -545.9, -277, -534, -276.1, -433.2, -301, -425.3, -301, -386.2, -307, -369.9, -307, -348, -304.3, -324, -308.3, -324, -303.9, -338.4, -295, -347.8, -295, -383, -291.2, -383.8, -290.4, -382.9, -289, -377.8, -289, -333, -281.7, -333, -280.4, -298, -268.4, -298, -263.5, -354.4, -276, -409, -276, -409, -277, -423.7, -277, -500, -266.2, -573, -206.1, -573, -161.8, -581, -109.7, -581, -96, -577, -82.3, -577, -21, -578, -21, -582, 136, -581.3, 136, -573, 186.8, -573, 199, -573.9, 233, -573.2, 233, -572.2, 245, -571.6, 245, -566, 260.7, -566, 284, -565.1, 315.6, -377.7, 164, -375.6, 164, -286.6, 105, -284.5, 105, -226.5, 76, -222.1, 76, -196.3, 69, -190.3, 69, -158.2, 64, -146.2, 64, 6.90002, 49, 19.9, 49, 105.9, 43, 207, 43, 207, 44.1, 340, 55.2, 340, 56.3, 374, 61.3, 374, 62.4, 417, 72.4, 417, 73.6, 481, 98.6, 481, 99.7, 560, 137.7, 560, 138.8, 678, 201.8, 678, 202.9, 756, 248.9, 756, 250, 807.6, 287, 809.6, 287, 876.6, 329, 878.5, 329, 899.5, 340, 904.1, 340, 960, 347.2, 960, 540, -871.8, 540, -799, 323.7, -799, 315, -800.2, 302, -798.7, 302, -796, 287.6, -796, 261, -791, -73, -791.6, -73, -796, -92.8, -796, -98.1, -793.2, -130, -799, -151.8, -799, -161, -802, -187.9, -802, -360, -800, -504, -815, -534.5, -815, -540, -510, -540 )
+
+[node name="Foreground2" type="Sprite" parent="FrontPlane"]
+position = Vector2( 0, -33.9411 )
+scale = Vector2( 1, 0.850722 )
+texture = ExtResource( 6 )
+
+[node name="Foreground1" type="Sprite" parent="FrontPlane"]
+position = Vector2( 1.35525e-20, -9.53674e-07 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="story_text" type="Sprite" parent="FrontPlane"]
+texture = ExtResource( 13 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 583.68, 1041.64 )

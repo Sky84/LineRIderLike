@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://custom_theme.tres" type="Theme" id=1]
-[ext_resource path="res://Sprites/Main_menu_UI.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/MainmenuUI.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/MainMenuController.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/LevelsMenuController.gd" type="Script" id=4]
-[ext_resource path="res://Sprites/level_select.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/levelselect.png" type="Texture" id=5]
 [ext_resource path="res://Fonts/Oliciy.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=1]
